@@ -5,6 +5,7 @@ using UnityEngine;
 public class TryMoveAroundControl : MonoBehaviour
 {
     [SerializeField] Vector3 _velocity;
+    [SerializeField] Vector3 _jumpVelocity = new Vector3(0, 100, 0);
     Rigidbody _rigidbody;
 
     Vector3 _previousPosition = new Vector3(0, 0, 0);
@@ -32,16 +33,25 @@ public class TryMoveAroundControl : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKey(KeyCode.R)) {
-            Reset();
-        }
+        DirectControl();
 
-        Debug.Log(string.Format("Update - Name: {0}, Position: {1}, deltaTime: {2}, frameCount: {3}, change: {4}, time: {5}", 
+        Debug.Log(string.Format("Update - Name: {0}, Position: {1}, deltaTime: {2}, frameCount: {3}, change: {4}, time: {5}",
             gameObject.name, transform.position, Time.deltaTime, Time.frameCount, GetPositionChanges(_previousPosition), Time.time));
 
         _previousPosition = transform.position;
 
         // AddForce();
+    }
+
+    private void DirectControl() {
+        if (Input.GetKey(KeyCode.R))
+        {
+            Reset();
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            _rigidbody.AddForce((_jumpVelocity));
+        }
     }
 
     private void Reset() {
