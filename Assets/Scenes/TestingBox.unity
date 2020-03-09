@@ -308,8 +308,8 @@ GameObject:
   - component: {fileID: 1786184732}
   - component: {fileID: 1786184731}
   - component: {fileID: 1786184730}
-  - component: {fileID: 1786184729}
   - component: {fileID: 1786184728}
+  - component: {fileID: 1786184729}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -356,10 +356,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1786184726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20166bc9be568c5449d80e031dfdf839, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e41cf62a1be34049b48027cac4accf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _velocity: {x: 500, y: 0, z: 500}
+  _jumpVelocity: {x: 0, y: 10, z: 0}
 --- !u!135 &1786184730
 SphereCollider:
   m_ObjectHideFlags: 0
